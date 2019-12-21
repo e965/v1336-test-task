@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
   "repository": "github:tehcojam/v1336-test-task",
+  "homepage": "http://tehcojam.github.io/v1336-test-task",
   "license": "MIT",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +36,7 @@
     "redux": "^4.0.4"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.13.0",
     "redux-devtools": "^3.5.0"
   }

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic&display=swap');
+
+@import './styles/inc/mixins';
+@import './styles/inc/extend';
+
+$primeColor: #3c8dbc;
+
+:root {
+  --prime-color:      #{$primeColor};
+	--prime-color-5d:   #{darken($primeColor, 5%)};
+	--prime-color-10d:  #{darken($primeColor, 10%)};
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0; margin: 0;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+#app {
+  display: grid;
+	grid-template-rows: 40px 1fr;
+	grid-template-columns: 1fr;
+}
+
+select {
+	@at-root button, & {
+		font: inherit
+	}
+}
+
+script {
+	@extend %visually-hidden;
+	font-size: 0;
+}
+
+@import './styles/Header';
+@import './styles/Main';

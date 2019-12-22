@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/v1336-test-task/static/css/main.1747d620.chunk.css",
-    "main.js": "/v1336-test-task/static/js/main.dcee0918.chunk.js",
-    "main.js.map": "/v1336-test-task/static/js/main.dcee0918.chunk.js.map",
+    "main.css": "/v1336-test-task/static/css/main.d59fdca5.chunk.css",
+    "main.js": "/v1336-test-task/static/js/main.5ad624d8.chunk.js",
+    "main.js.map": "/v1336-test-task/static/js/main.5ad624d8.chunk.js.map",
     "runtime-main.js": "/v1336-test-task/static/js/runtime-main.88e316f6.js",
     "runtime-main.js.map": "/v1336-test-task/static/js/runtime-main.88e316f6.js.map",
-    "static/css/2.02974078.chunk.css": "/v1336-test-task/static/css/2.02974078.chunk.css",
-    "static/js/2.155d0994.chunk.js": "/v1336-test-task/static/js/2.155d0994.chunk.js",
-    "static/js/2.155d0994.chunk.js.map": "/v1336-test-task/static/js/2.155d0994.chunk.js.map",
+    "static/css/2.ec69dd63.chunk.css": "/v1336-test-task/static/css/2.ec69dd63.chunk.css",
+    "static/js/2.b8f318a3.chunk.js": "/v1336-test-task/static/js/2.b8f318a3.chunk.js",
+    "static/js/2.b8f318a3.chunk.js.map": "/v1336-test-task/static/js/2.b8f318a3.chunk.js.map",
     "index.html": "/v1336-test-task/index.html",
-    "precache-manifest.b2916a3ec448d30d09ee8fabe7b17fcd.js": "/v1336-test-task/precache-manifest.b2916a3ec448d30d09ee8fabe7b17fcd.js",
+    "precache-manifest.15649bfa597b19fc16c12ea17e7af36d.js": "/v1336-test-task/precache-manifest.15649bfa597b19fc16c12ea17e7af36d.js",
     "service-worker.js": "/v1336-test-task/service-worker.js",
-    "static/css/2.02974078.chunk.css.map": "/v1336-test-task/static/css/2.02974078.chunk.css.map",
-    "static/css/main.1747d620.chunk.css.map": "/v1336-test-task/static/css/main.1747d620.chunk.css.map",
-    "static/js/2.155d0994.chunk.js.LICENSE": "/v1336-test-task/static/js/2.155d0994.chunk.js.LICENSE",
-    "static/media/fork-awesome.min.css": "/v1336-test-task/static/media/forkawesome-webfont.fc46f3da.ttf"
+    "static/css/2.ec69dd63.chunk.css.map": "/v1336-test-task/static/css/2.ec69dd63.chunk.css.map",
+    "static/css/main.d59fdca5.chunk.css.map": "/v1336-test-task/static/css/main.d59fdca5.chunk.css.map",
+    "static/js/2.b8f318a3.chunk.js.LICENSE": "/v1336-test-task/static/js/2.b8f318a3.chunk.js.LICENSE",
+    "static/media/App.scss": "/v1336-test-task/static/media/forkawesome-webfont.fc46f3da.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.88e316f6.js",
-    "static/css/2.02974078.chunk.css",
-    "static/js/2.155d0994.chunk.js",
-    "static/css/main.1747d620.chunk.css",
-    "static/js/main.dcee0918.chunk.js"
+    "static/css/2.ec69dd63.chunk.css",
+    "static/js/2.b8f318a3.chunk.js",
+    "static/css/main.d59fdca5.chunk.css",
+    "static/js/main.5ad624d8.chunk.js"
   ]
 }

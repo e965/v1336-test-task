@@ -4,25 +4,23 @@
   &__data {
     grid-area: data;
 
-    background-color: red;
+    @include flexbox(auto, space-around, center, auto);
   }
 
   &__time {
     grid-area: time;
-
-    background-color: yellow;
   }
 
   &__list {
     grid-area: list;
-
-    background-color: green;
   }
 
   &__canvas {
     grid-area: canvas;
+  }
 
-    background-color: aquamarine;
+  & > * {
+    border: 1px solid #ccc;
   }
 
   grid-template: "data data" 70px "time canvas" 150px "list canvas" auto / 300px auto;

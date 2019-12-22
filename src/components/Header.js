@@ -1,10 +1,12 @@
 import React from 'react'
 
+import Icon from './inc/Icon'
+
 class Header extends React.Component {
   createButton(iconName) {
     return (
       <button>
-        <i className={`fa fa-${iconName}`} style={{ pointerEvents: 'none' }} aria-hidden="true" />
+        <Icon name={iconName} />
       </button>
     )
   }

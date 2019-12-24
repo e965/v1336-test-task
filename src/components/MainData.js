@@ -1,9 +1,11 @@
 import React from 'react'
 
+import Icon from './inc/Icon'
+
 class DataBlock extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   handleSubmit(event) {
     event.preventDefault()
@@ -12,11 +14,11 @@ class DataBlock extends React.Component {
   render() {
     return (
       <form id={ this.props.id } onSubmit={ this.handleSubmit }>
-        <div className="input-group">
+        <div className="inputs input-group" data-flex>
           <label htmlFor={ this.props.id + '_ti' }>{ this.props.labelText }</label>
           <input id={ this.props.id + '_ti' } type="text" />
         </div>
-        <div className={ this.props.children.length > 0 ? 'input-group' : 'input-one' }>
+        <div className={ 'inputs ' + (this.props.children.length > 0 ? 'input-group' : 'input-one') } data-flex={ this.props.flex }>
           { this.props.children }
         </div>
       </form>
@@ -33,21 +35,24 @@ const MainData = () => (
     </DataBlock>
 
     <DataBlock id="data_field" labelText="Месторождение">
-      <button>Построить</button>
+      <button>
+        <Icon name="area-chart" />
+        <span>Построить</span>
+      </button>
     </DataBlock>
 
-    <DataBlock id="data_cluster" labelText="Куст">
-      <input type="checkbox" />
-      <input type="checkbox" />
-      <input type="checkbox" />
-      <input type="checkbox" />
-      <input type="checkbox" />
+    <DataBlock id="data_cluster" labelText="Куст" flex>
+      <input className="fa fa-bar-chart" type="checkbox" />
+      <input className="fa fa-hashtag" type="checkbox" />
+      <input className="fa fa-key-modern" type="checkbox" />
+      <input className="fa fa-download" type="checkbox" />
+      <input className="fa fa-anchor" type="checkbox" />
     </DataBlock>
 
-    <DataBlock id="data_well" labelText="Скважина">
-      <input type="checkbox" />
-      <input type="checkbox" />
-      <input type="checkbox" />
+    <DataBlock id="data_well" labelText="Скважина" flex>
+      <input className="fa fa-print" type="checkbox" />
+      <input className="fa fa-cogs" type="checkbox" />
+      <input className="fa fa-file-text" type="checkbox" />
     </DataBlock>
   </div>
 )

@@ -4,11 +4,36 @@
   &__data {
     grid-area: data;
 
-    @include flexbox(auto, space-around, center, auto);
+    @include flexbox(auto, space-between, center, auto);
+
+    padding: 10px 5px;
+
+    form {
+      min-width: 250px;
+      margin: 0 5px;
+
+      & > *:nth-child(2) {
+        margin-top: 2px;
+      }
+    }
   }
 
   &__time {
     grid-area: time;
+
+    padding: 10px;
+
+    form {
+      select {
+        background-color: var(--second-color);
+        color: #000;
+        border: 1px solid var(--prime-color-5d);
+      }
+
+      & > *:nth-child(2) {
+        margin-top: 2px;
+      }
+    }
   }
 
   &__list {
@@ -23,5 +48,100 @@
     border: 1px solid #ccc;
   }
 
-  grid-template: "data data" 70px "time canvas" 150px "list canvas" auto / 300px auto;
+  grid-template: 'data data' min-content 'time canvas' min-content 'list canvas' auto / 300px auto;
+}
+
+.input {
+  &s {
+    &[data-flex] {
+      display: flex;
+
+      label {
+        @include flexbox(auto, auto, center, auto);
+      }
+
+      input {
+        &[type='text'] {
+          width: 100%;
+        }
+      }
+    }
+
+    select {
+      background-color: var(--prime-color-5l);
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      width: 100%;
+      padding: 5px 10px;
+
+      border: 0;
+
+      color: #fff;
+      text-align: center;
+
+      option {
+        text-align: center;
+      }
+    }
+  }
+
+  &-group {
+    &:not([class$='--column']) > * {
+      @include inline-middle;
+    }
+
+    label {
+      background-color: var(--prime-color-5l);
+      color: #fff;
+
+      padding: 4px 10px;
+    }
+
+    input {
+      &[type='text'] {
+        padding: 5px 10px;
+        border: 1px solid var(--prime-color-5l);
+
+        background-color: var(--second-color);
+      }
+
+      &[type='checkbox'] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        background-color: var(--prime-color-5l);
+
+        width: 100%;
+        padding: 6px 10px;
+        border: 1px solid var(--prime-color);
+
+        color: #fff;
+        text-align: center;
+
+        &:checked {
+          background-color: var(--prime-color-5d);
+        }
+      }
+    }
+
+    &--column {
+      width: 100%;
+    }
+  }
+
+  &-one {
+    button {
+      width: 100%;
+      padding: 5px 10px;
+
+      background-color: var(--prime-color-5l);
+      color: #fff;
+
+      border: 0;
+    }
+  }
 }

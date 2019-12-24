@@ -6,11 +6,20 @@
 @import './styles/inc/extend';
 
 $primeColor: #3c8dbc;
+$secondColor: #e3ecfd;
 
 :root {
   --prime-color:      #{$primeColor};
+
+	--prime-color-5l:   #{lighten($primeColor, 5%)};
+	--prime-color-10l:  #{lighten($primeColor, 10%)};
+
 	--prime-color-5d:   #{darken($primeColor, 5%)};
 	--prime-color-10d:  #{darken($primeColor, 10%)};
+
+  --second-color:     #{$secondColor};
+
+	--second-color-5l:  #{lighten($secondColor, 5%)};
 }
 
 * {
@@ -19,12 +28,10 @@ $primeColor: #3c8dbc;
 }
 
 html, body, #app {
-  width: 100%;
   height: 100%;
 }
 
 body {
-  overflow: hidden;
   font-family: Roboto, Arial, sans-serif;
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 import Icon from './inc/Icon'
 
-class MainTime extends React.Component {
+class TimeForm extends React.Component {
   constructor(props) {
     super(props)
 
@@ -28,7 +28,7 @@ class MainTime extends React.Component {
   render() {
     return (
       <form id="time_select" onSubmit={ this.handleSubmit }>
-        <div className="input-group">
+        <div className="inputs input-group" data-flex>
           <label htmlFor="time_1">
             <Icon name="clock-o" />
           </label>
@@ -40,12 +40,12 @@ class MainTime extends React.Component {
           </select>
         </div>
 
-        <div className="input-group">
+        <div className="inputs input-group" data-flex>
           <label htmlFor="time_2">
             <Icon name="hourglass-half" />
           </label>
 
-          <div className="inputs-group--column">
+          <div className="inputs input-group--column">
             <select id="time_2" value={ this.state.time_2 } onChange={ this.handleChange }>
               <option value="0">Начало 00:00</option>
               <option value="6">Начало 06:00</option>
@@ -67,5 +67,11 @@ class MainTime extends React.Component {
     )
   }
 }
+
+const MainTime = () => (
+  <div className="main__time">
+    <TimeForm />
+  </div>
+)
 
 export default MainTime

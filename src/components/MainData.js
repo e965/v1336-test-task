@@ -17,7 +17,7 @@ class DataBlock extends React.Component {
       <form id={ this.props.id } onSubmit={ this.handleSubmit }>
         <div className="inputs input-group" data-flex>
           <label htmlFor={ this.props.id + '_ti' }>{ this.props.labelText }</label>
-          <input id={ this.props.id + '_ti' } type="text" />
+          <input id={ this.props.id + '_ti' } type="text" readOnly />
         </div>
         <div className={ 'inputs ' + (this.props.children.length > 0 ? 'input-group' : 'input-one') } data-flex={ this.props.flex }>
           { this.props.children }
@@ -51,9 +51,9 @@ const MainData = () => (
     </DataBlock>
 
     <DataBlock id="data_well" labelText="Скважина" flex>
-      <input className="fa fa-print" type="checkbox" />
-      <input className="fa fa-cogs" type="checkbox" />
-      <input className="fa fa-file-text" type="checkbox" />
+      <button><Icon name="print" /></button>
+      <button><Icon name="cogs" /></button>
+      <button><Icon name="file-text" /></button>
     </DataBlock>
   </div>
 )

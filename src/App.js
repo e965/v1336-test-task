@@ -3,6 +3,9 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
+// eslint-disable-next-line
+import Data from './data'
+
 import rootReducer from './reducers'
 
 import Header from './components/Header'

@@ -24,6 +24,10 @@
     padding: 10px;
 
     form {
+      label {
+        margin-right: 1px;
+      }
+
       select {
         background-color: var(--second-color);
         color: #000;
@@ -58,14 +62,26 @@
 
       label {
         @include flexbox(auto, auto, center, auto);
-
-        margin-right: 1px;
       }
 
       input {
         &[type='text'] {
           width: 100%;
         }
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 5px 10px;
+
+      background-color: var(--prime-color-5l);
+      color: #fff;
+
+      border: 0;
+
+      span {
+        margin-left: 5px;
       }
     }
 
@@ -140,24 +156,12 @@
       }
     }
 
+    button {
+      border: 1px solid var(--prime-color);
+    }
+
     &--column {
       width: 100%;
-    }
-  }
-
-  &-one {
-    button {
-      width: 100%;
-      padding: 5px 10px;
-
-      background-color: var(--prime-color-5l);
-      color: #fff;
-
-      border: 0;
-
-      span {
-        margin-left: 5px;
-      }
     }
   }
 }

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
   "repository": "github:tehcojam/v1336-test-task",
-  "homepage": "http://tehcojam.github.io/v1336-test-task",
+  "homepage": "https://tehcojam.github.io/v1336-test-task",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -33,7 +33,7 @@
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "react-scripts": "3.3.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1",

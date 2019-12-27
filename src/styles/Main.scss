@@ -6,11 +6,11 @@
 
     @include flexbox(auto, space-between, center, auto);
 
-    padding: 10px 5px;
-
     form {
+      width: 25%;
       min-width: 250px;
-      margin: 0 5px;
+
+      padding: 10px;
 
       & > *:nth-child(2) {
         margin-top: 2px;
@@ -58,6 +58,8 @@
 
       label {
         @include flexbox(auto, auto, center, auto);
+
+        margin-right: 1px;
       }
 
       input {
@@ -67,23 +69,33 @@
       }
     }
 
-    select {
-      background-color: var(--prime-color-5l);
-
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
+    .select-wrapper {
+      position: relative;
 
       width: 100%;
-      padding: 5px 10px;
 
-      border: 0;
+      select {
+        background-color: var(--prime-color-5l);
 
-      color: #fff;
-      text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
 
-      option {
-        text-align: center;
+        position: relative;
+        width: 100%;
+        padding: 5px 10px;
+
+        border: 0;
+
+        color: #fff;
+        text-align-last: center;
+
+        + .fa {
+          position: absolute;
+          top: 5px; right: 5px;
+
+          color: #fff;
+        }
       }
     }
   }
@@ -142,6 +154,10 @@
       color: #fff;
 
       border: 0;
+
+      span {
+        margin-left: 5px;
+      }
     }
   }
 }

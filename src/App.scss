@@ -11,20 +11,20 @@ $secondColor: #e3ecfd;
 :root {
   --prime-color:      #{$primeColor};
 
-	--prime-color-5l:   #{lighten($primeColor, 5%)};
-	--prime-color-10l:  #{lighten($primeColor, 10%)};
+  --prime-color-5l:   #{lighten($primeColor, 5%)};
+  --prime-color-10l:  #{lighten($primeColor, 10%)};
 
-	--prime-color-5d:   #{darken($primeColor, 5%)};
-	--prime-color-10d:  #{darken($primeColor, 10%)};
+  --prime-color-5d:   #{darken($primeColor, 5%)};
+  --prime-color-10d:  #{darken($primeColor, 10%)};
 
   --second-color:     #{$secondColor};
 
-	--second-color-5l:  #{lighten($secondColor, 5%)};
+  --second-color-5l:  #{lighten($secondColor, 5%)};
 }
 
 * {
-	box-sizing: border-box;
-	padding: 0; margin: 0;
+  box-sizing: border-box;
+  padding: 0; margin: 0;
 }
 
 html, body, #app {
@@ -37,19 +37,20 @@ body {
 
 #app {
   display: grid;
-	grid-template-rows: 40px 1fr;
-	grid-template-columns: 1fr;
+  grid-template-rows: 40px 1fr;
+  grid-template-columns: 1fr;
 }
 
 select {
-	@at-root button, & {
-		font: inherit
-	}
+  @at-root button, input, & {
+    font: inherit;
+    cursor: pointer;
+  }
 }
 
 script {
-	@extend %visually-hidden;
-	font-size: 0;
+  @extend %visually-hidden;
+  font-size: 0;
 }
 
 @import './styles/Header';

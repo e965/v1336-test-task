@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Icon from './inc/Icon'
+import Select from './inc/Select'
 
 class DataBlock extends React.Component {
   // constructor(props) {
@@ -29,9 +30,9 @@ class DataBlock extends React.Component {
 const MainData = () => (
   <div className="main__data">
     <DataBlock id="data_brigade" labelText="Бригада">
-      <select id="data_brigade_sel">
+      <Select id="data_brigade_sel">
         <option selected disabled hidden>Каналы</option>
-      </select>
+      </Select>
     </DataBlock>
 
     <DataBlock id="data_field" labelText="Месторождение">

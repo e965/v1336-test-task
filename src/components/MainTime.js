@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Icon from './inc/Icon'
+import Select from './inc/Select'
 
 class TimeForm extends React.Component {
   constructor(props) {
@@ -33,11 +34,11 @@ class TimeForm extends React.Component {
             <Icon name="clock-o" />
           </label>
 
-          <select id="time_1" value={ this.state.time_1 } onChange={ this.handleChange }>
+          <Select id="time_1" value={ this.state.time_1 } changeEvent={ this.handleChange }>
             <option value="today">Сегодня</option>
             <option value="yesterday">Вчера</option>
             <option value="week">Неделя</option>
-          </select>
+          </Select>
         </div>
 
         <div className="inputs input-group" data-flex>
@@ -46,21 +47,21 @@ class TimeForm extends React.Component {
           </label>
 
           <div className="inputs input-group--column">
-            <select id="time_2" value={ this.state.time_2 } onChange={ this.handleChange }>
+            <Select id="time_2" value={ this.state.time_2 } changeEvent={ this.handleChange }>
               <option value="0">Начало 00:00</option>
               <option value="6">Начало 06:00</option>
               <option value="12">Начало 12:00</option>
               <option value="18">Начало 18:00</option>
               <option value="23">Начало 23:00</option>
-            </select>
+            </Select>
 
-            <select id="time_3" value={ this.state.time_3 } onChange={ this.handleChange }>
+            <Select id="time_3" styles={{ marginTop: '1px' }} value={ this.state.time_3 } onChange={ this.handleChange }>
               <option value="1">1 час</option>
               <option value="6">6 час</option>
               <option value="12">12 часов</option>
               <option value="18">18 часов</option>
               <option value="24">24 часа</option>
-            </select>
+            </Select>
           </div>
         </div>
       </form>

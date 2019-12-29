@@ -30,6 +30,9 @@ let getWellNum = () => {
 }
 
 let prepareData = data => {
+  let startTime = [0, 6, 12, 18]
+  let hours = [8, 12]
+
   data.forEach(plant => {
     plant.title = `Цех №${plant.num}`
 
@@ -48,10 +51,20 @@ let prepareData = data => {
       for (let i = 0; i <= 10; i++) {
         brigade.wells.push(getWellNum())
       }
+
+      brigade.times = {
+        dayStart: rnd(15),
+        startTime: startTime[rnd(startTime.length)],
+        hours: hours[rnd(hours.length)]
+      }
+
+      brigade.times.duration = rnd(brigade.times.dayStart) + 1
     })
 
     delete plant.num
     delete plant.fields
+
+    console.log(plant)
   })
 
   return data

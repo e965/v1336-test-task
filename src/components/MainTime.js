@@ -52,7 +52,6 @@ class TimeForm extends React.Component {
               <option value="6">Начало 06:00</option>
               <option value="12">Начало 12:00</option>
               <option value="18">Начало 18:00</option>
-              <option value="23">Начало 23:00</option>
             </Select>
 
             <Select id="time_3" styles={{ marginTop: '1px' }} value={ this.state.time_3 } changeEvent={ this.handleChange }>

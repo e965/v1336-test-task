@@ -30,8 +30,8 @@ class DataBlock extends React.Component {
 const MainData = () => (
   <div className="main__data">
     <DataBlock id="data_brigade" labelText="Бригада">
-      <Select id="data_brigade_sel">
-        <option selected disabled hidden>Каналы</option>
+      <Select id="data_brigade_sel" value='' changeEvent={() => {}}>
+        <option disabled hidden value=''>Каналы</option>
       </Select>
     </DataBlock>
 

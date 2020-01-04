@@ -15,7 +15,7 @@ const PLANTS = [
     num: 3,
     title: 'Цех №3',
     fields: [
-      'Гожанское', 'Москудьинское', 'Шагирское'
+      'Шагирто-Гожанское', 'Аптугайское', 'Шагирское', 'Кудрявцевское', 'Быркинское', 'Альняшское'
     ],
     brigadesNum: 8
   }
@@ -63,8 +63,6 @@ let prepareData = data => {
 
     delete plant.num
     delete plant.fields
-
-    console.log(plant)
   })
 
   return data

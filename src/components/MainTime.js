@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { connect } from 'react-redux'
+
 import Icon from './inc/Icon'
 import Select from './inc/Select'
 
@@ -13,6 +15,8 @@ class TimeForm extends React.Component {
       time_3: '24'
     }
 
+    this.dispatch = this.props.dispatch
+
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -20,10 +24,17 @@ class TimeForm extends React.Component {
     event.preventDefault()
   }
 
+  filterPlants(data) {
+    return {
+      type: 'FILTER_PLANTS',
+      payload: []
+    }
+  }
+
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value })
 
-    console.log(this.state)
+    this.dispatch(this.filterPlants(this.state))
   }
 
   render() {
@@ -68,9 +79,15 @@ class TimeForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return { plants: state.plants }
+}
+
+const WrappedTimeForm = connect(mapStateToProps)(TimeForm)
+
 const MainTime = () => (
   <div className="main__time">
-    <TimeForm />
+    <WrappedTimeForm />
   </div>
 )
 

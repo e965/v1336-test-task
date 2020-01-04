@@ -1,7 +1,33 @@
 import React from 'react'
 
-const MainList = () => (
-  <div className="main__list" />
-)
+import { connect } from 'react-redux'
 
-export default MainList
+import Store from '../store'
+
+class MainList extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.dispatch = this.props.dispatch
+
+    Store.subscribe(this.generateContent)
+  }
+
+  generateContent() {
+
+  }
+
+  render() {
+    return (
+      <div className="main__list" />
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return { well: state.well }
+}
+
+const WrappedMainList = connect(mapStateToProps)(MainList)
+
+export default WrappedMainList

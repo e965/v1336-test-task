@@ -1,14 +1,19 @@
-import { combineReducers } from 'redux'
+const initialState = {
+  plants: [],
+  well: null
+}
 
-const actions = (state = [], action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case '':
-      return
+    case 'FILTER_PLANTS':
+      return { ...state, plants: action.payload }
+
+    case 'SELECT_WELL':
+      return { ...state, well: action.payload }
+
     default:
       return state
   }
 }
 
-export default combineReducers({
-  actions
-})
+export default reducer

@@ -3,6 +3,9 @@ import React from 'react'
 import Icon from './inc/Icon'
 import Select from './inc/Select'
 
+// eslint-disable-next-line
+import Store from '../store'
+
 class DataBlock extends React.Component {
   // constructor(props) {
   //   super(props)

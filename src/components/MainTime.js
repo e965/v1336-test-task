@@ -2,6 +2,8 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import Data from '../data'
+
 import Icon from './inc/Icon'
 import Select from './inc/Select'
 
@@ -25,16 +27,58 @@ class TimeForm extends React.Component {
   }
 
   filterPlants(data) {
+    let plants = JSON.parse(JSON.stringify(Data))
+
+    plants.forEach(plant => {
+      plant.brigades.forEach(brigade => {
+        brigade.d = true
+
+        switch (data.time_1) {
+          case 'today':
+            if (
+              brigade.times.dayStart === 0 &&
+              brigade.times.duration === 1
+            ) {
+              brigade.d = false
+            }; break
+          case 'yesterday':
+            if (
+              brigade.times.dayStart === 1 &&
+              brigade.times.duration === 1
+            ) {
+              brigade.d = false
+            }; break
+          case 'week':
+            if (
+              brigade.times.dayStart >= 0 &&
+              brigade.times.dayStart <= 7 &&
+              brigade.times.duration >= 1
+            ) {
+              brigade.d = false
+            }; break
+          default:
+            break
+        }
+      })
+
+      plant.brigades = plant.brigades.filter(brigade => {
+        return !brigade.d
+      })
+    })
+
+    console.log(Data)
+    console.log(plants)
+
     return {
       type: 'FILTER_PLANTS',
-      payload: []
+      payload: plants
     }
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value })
-
-    this.dispatch(this.filterPlants(this.state))
+    this.setState({ [event.target.id]: event.target.value }, () => {
+      this.dispatch(this.filterPlants(this.state))
+    })
   }
 
   render() {

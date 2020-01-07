@@ -3,8 +3,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import Store from './store'
 
-import Data from './data'
-
 import Header from './components/Header'
 import Main from './components/Main'
 
@@ -16,7 +14,5 @@ const App = () => {
     </Provider>
   )
 }
-
-console.dir(Data)
 
 export default App

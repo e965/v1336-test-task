@@ -4,20 +4,20 @@ const PLANTS = [
     fields: [
       'Павловское', 'Чикулаевское', 'Чернушинское', 'Трушниковское', 'Этышское', 'Дороховское'
     ],
-    brigadesNum: 10
+    brigadesNum: 20
   }, {
     num: 2,
     fields: [
       'Красноярско-Куединское', 'Гондыревское', 'Степеновское', 'Аксаитовское'
     ],
-    brigadesNum: 6
+    brigadesNum: 12
   }, {
     num: 3,
     title: 'Цех №3',
     fields: [
       'Шагирто-Гожанское', 'Аптугайское', 'Шагирское', 'Кудрявцевское', 'Быркинское', 'Альняшское'
     ],
-    brigadesNum: 8
+    brigadesNum: 16
   }
 ]
 
@@ -52,13 +52,10 @@ let prepareData = data => {
         brigade.wells.push(getWellNum())
       }
 
-      brigade.times = {
-        dayStart: rnd(15),
-        startTime: startTime[rnd(startTime.length)],
-        hours: hours[rnd(hours.length)]
-      }
-
-      brigade.times.duration = rnd(brigade.times.dayStart) + 1
+      brigade.times = {}
+      brigade.times.startDate = new Date(Date.now() - rnd(12) * 24 * 60 * 60 * 1000).setHours(0, 0, 0, 0)
+      brigade.times.startTime = new Date(brigade.times.startDate).setHours(startTime[rnd(startTime.length)], 0, 0, 0)
+      brigade.times.endTime = new Date(brigade.times.startTime + hours[rnd(hours.length)] * 60 * 60 * 1000).getTime()
     })
 
     delete plant.num

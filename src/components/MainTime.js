@@ -29,45 +29,37 @@ class TimeForm extends React.Component {
   filterPlants(data) {
     let plants = JSON.parse(JSON.stringify(Data))
 
+    let period = {}
+
+    switch (data.time_1) {
+      case 'today':
+      case 'yesterday':
+        period.startDay = new Date(
+            data.time_1 === 'today' ? Date.now() : Date.now() - 24 * 60 * 60 * 1000
+          ).setHours(0, 0, 0, 0)
+        period.startTime = new Date(period.startDay).setHours(data.time_2)
+        period.endTime = new Date(period.startTime + data.time_3 * 60 * 60 * 1000).getTime()
+        break;
+
+      case 'week':
+        period.startTime = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).setHours(0, 0, 0, 0)
+        period.endTime = new Date(Date.now() + 24 * 60 * 60 * 1000).setHours(23, 59, 59, 999)
+        break;
+
+      default:
+        break;
+    }
+
     plants.forEach(plant => {
-      plant.brigades.forEach(brigade => {
-        brigade.d = true
-
-        switch (data.time_1) {
-          case 'today':
-            if (
-              brigade.times.dayStart === 0 &&
-              brigade.times.duration === 1
-            ) {
-              brigade.d = false
-            }; break
-          case 'yesterday':
-            if (
-              brigade.times.dayStart === 1 &&
-              brigade.times.duration === 1
-            ) {
-              brigade.d = false
-            }; break
-          case 'week':
-            if (
-              brigade.times.dayStart >= 0 &&
-              brigade.times.dayStart <= 7 &&
-              brigade.times.duration >= 1
-            ) {
-              brigade.d = false
-            }; break
-          default:
-            break
-        }
-      })
-
       plant.brigades = plant.brigades.filter(brigade => {
-        return !brigade.d
+        return brigade.times.startTime >= period.startTime &&
+          brigade.times.endTime <= period.endTime
       })
     })
 
-    console.log(Data)
-    console.log(plants)
+    plants = plants.filter(plant => {
+      return plant.brigades.length > 0
+    })
 
     return {
       type: 'FILTER_PLANTS',

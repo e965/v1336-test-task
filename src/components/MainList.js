@@ -24,6 +24,8 @@ class MainList extends React.Component {
   }
 
   choiceWell(data) {
+    data.brigade = data.brigade.split(' ')[1]
+
     return {
       type: 'SELECT_WELL',
       payload: data

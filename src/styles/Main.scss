@@ -1,6 +1,20 @@
 .main {
   display: grid;
 
+  button {
+    width: 100%;
+    padding: 5px 10px;
+
+    background-color: var(--prime-color-5l);
+    color: #fff;
+
+    border: 0;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
   &__data {
     grid-area: data;
 
@@ -42,17 +56,41 @@
 
   &__list {
     grid-area: list;
+
+    max-height: 450px; // без этого свойства начинает сильно расширяться по высоте, пока решения нет (проблема скорее всего в CSS-гридах)
+    padding: 5px 10px;
+
+    overflow-y: scroll;
+
+    ul {
+      li {
+        list-style: none;
+
+        margin-top: 5px;
+
+        ul {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    button {
+      width: auto;
+      border: 1px solid var(--prime-color);
+    }
   }
 
   &__canvas {
     grid-area: canvas;
+
+    @include flexbox(auto, center, center, auto);
   }
 
   & > * {
     border: 1px solid #ccc;
   }
 
-  grid-template: 'data data' min-content 'time canvas' min-content 'list canvas' auto / 300px auto;
+  grid-template: 'data data' min-content 'time canvas' min-content 'list canvas' auto / 250px auto;
 }
 
 .input {
@@ -68,20 +106,6 @@
         &[type='text'] {
           width: 100%;
         }
-      }
-    }
-
-    button {
-      width: 100%;
-      padding: 5px 10px;
-
-      background-color: var(--prime-color-5l);
-      color: #fff;
-
-      border: 0;
-
-      span {
-        margin-left: 5px;
       }
     }
 

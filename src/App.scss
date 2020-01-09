@@ -42,7 +42,7 @@ body {
 }
 
 select {
-  @at-root button, input, & {
+  @at-root button, input, details summary, & {
     font: inherit;
     cursor: pointer;
   }

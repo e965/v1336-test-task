@@ -21,7 +21,7 @@ class MainCanvas extends React.Component {
 
   render() {
     let cittenImg = this.state.wellNum
-      ? <img src={`https://cataas.com/cat/says/${this.state.wellNum}?size=50&height=200`} alt="citten" />
+      ? <img src={`https://cataas.com/cat/says/${this.state.wellNum}?size=50&height=350`} alt="citten" />
       : ''
 
     return (

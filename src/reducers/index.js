@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 
 const initialState = {
+  appID: 'e965:reactapp',
   plants: [],
   well: {}
 }

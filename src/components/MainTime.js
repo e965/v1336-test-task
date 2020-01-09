@@ -11,10 +11,20 @@ class TimeForm extends React.Component {
   constructor(props) {
     super(props)
 
+    this.appID = this.props.appID
+
     this.state = {
-      time_1: 'today',
-      time_2: 0,
-      time_3: 24
+      time_1: localStorage.getItem(`${this.appID}:time_1`)
+        ? localStorage.getItem(`${this.appID}:time_1`)
+        : 'today',
+
+      time_2: localStorage.getItem(`${this.appID}:time_2`)
+        ? Number(localStorage.getItem(`${this.appID}:time_2`))
+        : 0,
+
+      time_3: localStorage.getItem(`${this.appID}:time_3`)
+        ? Number(localStorage.getItem(`${this.appID}:time_3`))
+        : 24
     }
 
     this.dispatch = this.props.dispatch
@@ -73,6 +83,10 @@ class TimeForm extends React.Component {
   }
 
   handleChange(event) {
+    try {
+      localStorage.setItem(`${this.appID}:${event.target.id}`, event.target.value)
+    } catch {}
+
     this.setState({ [event.target.id]: event.target.value }, () => {
       this.dispatch(this.filterPlants(this.state))
     })
@@ -121,7 +135,7 @@ class TimeForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { plants: state.plants }
+  return { ...state.reducer }
 }
 
 const WrappedTimeForm = connect(mapStateToProps)(TimeForm)

@@ -1,6 +1,8 @@
+import { combineReducers } from 'redux'
+
 const initialState = {
   plants: [],
-  well: null
+  well: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,4 +18,9 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer
+// https://github.com/reduxjs/redux/issues/580#issuecomment-133188511
+const lastAction = (state = null, action) => action
+
+export default combineReducers({
+  reducer, lastAction
+})

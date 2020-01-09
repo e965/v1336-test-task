@@ -13,11 +13,13 @@ class TimeForm extends React.Component {
 
     this.state = {
       time_1: 'today',
-      time_2: '0',
-      time_3: '24'
+      time_2: 0,
+      time_3: 24
     }
 
     this.dispatch = this.props.dispatch
+
+    this.dispatch(this.filterPlants(this.state))
 
     this.handleChange = this.handleChange.bind(this)
   }
@@ -31,6 +33,9 @@ class TimeForm extends React.Component {
 
     let period = {}
 
+    data.time_2 = Number(data.time_2)
+    data.time_3 = Number(data.time_3)
+
     switch (data.time_1) {
       case 'today':
       case 'yesterday':
@@ -38,7 +43,7 @@ class TimeForm extends React.Component {
             data.time_1 === 'today' ? Date.now() : Date.now() - 24 * 60 * 60 * 1000
           ).setHours(0, 0, 0, 0)
         period.startTime = new Date(period.startDay).setHours(data.time_2)
-        period.endTime = new Date(period.startTime + data.time_3 * 60 * 60 * 1000).getTime()
+        period.endTime = new Date(period.startTime).getTime() + data.time_3 * 60 * 60 * 1000
         break;
 
       case 'week':

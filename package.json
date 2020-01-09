@@ -1,9 +1,9 @@
 {
   "name": "v1336-test-task",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Dmitry <dmitry@cojam.ru> (https://e965.ru)",
-  "repository": "github:tehcojam/v1336-test-task",
-  "homepage": "https://tehcojam.github.io/v1336-test-task",
+  "repository": "github:e965/v1336-test-task",
+  "homepage": "https://e965.github.io/v1336-test-task",
   "license": "MIT",
   "private": true,
   "scripts": {

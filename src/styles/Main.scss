@@ -83,6 +83,8 @@
   &__canvas {
     grid-area: canvas;
 
+    min-height: 500px;
+
     @include flexbox(auto, center, center, auto);
   }
 
@@ -90,7 +92,14 @@
     border: 1px solid #ccc;
   }
 
-  grid-template: 'data data' min-content 'time canvas' max-content 'list canvas' auto / 250px auto;
+  --main-time-height: max-content;
+
+  @-moz-document url-prefix() {
+    // в огнелисе это свойство работает не совсем корректно, поэтому здесь есть этот небольшой костыль
+    --main-time-height: minmax(100px, max-content);
+  }
+
+  grid-template: 'data data' max-content 'time canvas' var(--main-time-height) 'list canvas' auto / 250px auto;
 }
 
 .input {

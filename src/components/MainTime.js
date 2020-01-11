@@ -27,6 +27,8 @@ class TimeForm extends React.Component {
         : 24
     }
 
+    this.state.selectors_disabled = (this.state.time_1 === 'week')
+
     this.dispatch = this.props.dispatch
 
     this.dispatch(this.filterPlants(this.state))
@@ -83,11 +85,15 @@ class TimeForm extends React.Component {
   }
 
   handleChange(event) {
-    try {
-      localStorage.setItem(`${this.appID}:${event.target.id}`, event.target.value)
-    } catch {}
+    localStorage.setItem(`${this.appID}:${event.target.id}`, event.target.value)
 
-    this.setState({ [event.target.id]: event.target.value }, () => {
+    let changes = {
+      [event.target.id]: event.target.value,
+
+      selectors_disabled: (event.target.id === 'time_1' && event.target.value === 'week')
+    }
+
+    this.setState({ ...changes }, () => {
       this.dispatch(this.filterPlants(this.state))
     })
   }
@@ -113,14 +119,14 @@ class TimeForm extends React.Component {
           </label>
 
           <div className="inputs input-group--column">
-            <Select id="time_2" value={ this.state.time_2 } changeEvent={ this.handleChange }>
+            <Select id="time_2" value={ this.state.time_2 } changeEvent={ this.handleChange } disabled={ this.state.selectors_disabled }>
               <option value="0">Начало 00:00</option>
               <option value="6">Начало 06:00</option>
               <option value="12">Начало 12:00</option>
               <option value="18">Начало 18:00</option>
             </Select>
 
-            <Select id="time_3" styles={{ marginTop: '1px' }} value={ this.state.time_3 } changeEvent={ this.handleChange }>
+            <Select id="time_3" styles={{ marginTop: '1px' }} value={ this.state.time_3 } changeEvent={ this.handleChange } disabled={ this.state.selectors_disabled }>
               <option value="1">1 час</option>
               <option value="6">6 час</option>
               <option value="12">12 часов</option>

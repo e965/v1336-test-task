@@ -1,5 +1,6 @@
 .main {
   display: grid;
+  height: calc(100% - var(--header-height));
 
   button {
     width: 100%;
@@ -57,7 +58,6 @@
   &__list {
     grid-area: list;
 
-    max-height: 450px; // без этого свойства начинает сильно расширяться по высоте, пока решения нет (проблема скорее всего в CSS-гридах)
     padding: 5px 10px;
 
     overflow-y: scroll;
@@ -90,7 +90,7 @@
     border: 1px solid #ccc;
   }
 
-  grid-template: 'data data' min-content 'time canvas' min-content 'list canvas' auto / 250px auto;
+  grid-template: 'data data' min-content 'time canvas' max-content 'list canvas' auto / 250px auto;
 }
 
 .input {
@@ -129,6 +129,11 @@
 
         color: #fff;
         text-align-last: center;
+
+        &:disabled {
+          background-color: var(--prime-color);
+          cursor: not-allowed;
+        }
 
         + .fa {
           position: absolute;

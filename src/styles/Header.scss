@@ -1,8 +1,7 @@
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexbox(auto, center, center, auto);
 
+  height: var(--header-height);
   position: relative;
 
   background-color: var(--prime-color);

@@ -20,6 +20,8 @@ $secondColor: #e3ecfd;
   --second-color:     #{$secondColor};
 
   --second-color-5l:  #{lighten($secondColor, 5%)};
+
+  --header-height: 40px;
 }
 
 * {
@@ -28,17 +30,11 @@ $secondColor: #e3ecfd;
 }
 
 html, body, #app {
-  height: 100%;
+  height: 100vh;
 }
 
 body {
   font-family: Roboto, Arial, sans-serif;
-}
-
-#app {
-  display: grid;
-  grid-template-rows: 40px 1fr;
-  grid-template-columns: 1fr;
 }
 
 select {
